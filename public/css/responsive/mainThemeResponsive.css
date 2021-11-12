@@ -1,0 +1,131 @@
+
+@media (max-width: 1400px) {
+    main, header, footer {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+}
+
+
+@media (max-width: 992px) {
+    header img {
+        width: 400px;
+    }
+
+    .row {
+        justify-content: space-between;
+    }
+
+    .row button {
+        transform: scale(1.5);
+        margin-right: 20px;
+        height: 100%;
+        margin-top: 30px;
+    }
+    .searchTerm {
+        width: 50%;
+    }
+
+    header a {
+        font-size: 40px;
+    }
+    .navbar-collapse {
+        border-top: 2px solid rgb(102, 252, 241);
+    }
+    .footerLinksDiv {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    footer p {
+        margin: 40px 0px 5px 30px;
+    }
+
+    .gridItem img {
+        height: 180px;
+        width: 180px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    .slick-arrow {
+        transform: scale(2);
+    }
+
+    .slick-next {
+        margin-right: 20px;
+    }
+
+    .slick-prev {
+        margin-left: 20px;
+    }
+
+    .copyright {
+        margin: 35px 0px 5px 30px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header img {
+        width: 300px;
+    }
+    .row button {
+        margin-right: 20px;
+        height: 100%;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        flex-direction: column;
+    }
+    .searchTerm {
+        width: 100%;
+    }
+    .navbar-toggler {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 60%;
+        margin-left: 20px;
+    }
+    .navbar-brand {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .row {
+        align-items: center;
+    }
+    .twoRows {
+        align-items: center;
+    }
+
+    header img {
+        width: 200px;
+    }
+    .slick-arrow {
+        display: none !important;
+    }
+    footer {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .footerLinksDiv {
+        align-items: center;
+        margin: 0;
+    }
+    p {
+        font-size: 20px;
+    }
+}
+

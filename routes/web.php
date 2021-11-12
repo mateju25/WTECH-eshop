@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Homepage Route
+Route::get('/', 'App\Http\Controllers\HomePageController@index');
+
+Route::resource('/products', 'App\Http\Controllers\ProductController');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
