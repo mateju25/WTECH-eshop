@@ -3,6 +3,10 @@
     width: 50%;
 }
 
+.slick-slide{
+    height: 50%;
+}
+
 .rightPart {
     margin: 20px;
 }
@@ -14,9 +18,11 @@
 }
 
 .functionalPart {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 }
 
 .reviewPart {
@@ -28,6 +34,7 @@
 
 .reviewPart p{
     font-weight: bold;
+    margin: 0px
 }
 
 .recommendations {
@@ -61,4 +68,15 @@
 
 .lightbox img {
     max-width: -webkit-fill-available;
+}
+
+.ratingReview{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.getHigher{
+    margin-top: 15px;
+    color: #66FCF1;
 }

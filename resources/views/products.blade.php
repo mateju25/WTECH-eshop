@@ -76,7 +76,7 @@
             <article class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h1>{{$product->name}}</h1>
-                    <a href="/productDetail">
+                    <a href="/products/{{$product->id}}">
                         <img srcset="{{ asset('images/mainPage/bestOfWeek_200.png') }} 480w,
                              {{ asset('images/mainPage/bestOfWeek_400.png') }} 800w"
                              sizes="(max-width: 600px) 480px, 800px"

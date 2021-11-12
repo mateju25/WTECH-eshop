@@ -25,7 +25,7 @@ main section {
 
 .button {
     margin: 5px;
-    background: url("../../pics/shopNetwork/city.jpg") no-repeat;
+    background: url("../../images/shopNetwork/city.jpg") no-repeat;
     height: 100px;
     width: 130px;
     color: white;
@@ -40,7 +40,7 @@ main section {
     border: none;
     height: 15px;
     width: 12px;
-    background: url("../../pics/shopNetwork/copy.jpg") no-repeat;
+    background: url("../../images/shopNetwork/copy.jpg") no-repeat;
     outline:none;
 }
 

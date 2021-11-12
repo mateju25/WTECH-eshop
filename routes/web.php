@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 // Homepage Route
 Route::get('/', 'App\Http\Controllers\HomePageController@index');
 
+Route::get('/contact', 'App\Http\Controllers\ContactController@index');
+
+Route::get('/shopNetwork', 'App\Http\Controllers\ShopNetworkController@index');
+
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 
 //Route::get('/', function () {
