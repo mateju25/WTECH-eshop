@@ -12,7 +12,8 @@
         margin-top: 0px;
     }
     .halfBlock {
-        width: 80%;
+        width: 100%;
+        margin-top: 20px;
     }
 
     .leftSide {

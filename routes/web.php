@@ -22,6 +22,8 @@ Route::get('/shopNetwork', 'App\Http\Controllers\ShopNetworkController@index');
 
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

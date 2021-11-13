@@ -24,9 +24,26 @@
                         <li class="nav-item">
                             <a href="/shoppingCard">Košík 🛒</a>
                         </li>
-                        <li class="nav-item login">
-                            <a href="/login">Prihlásenie</a>
-                        </li>
+                        @guest
+                            <li class="nav-item login">
+                                <a href="/login">Prihlásenie</a>
+                            </li>
+                        @endguest
+
+
+                        @auth
+                            <li class="nav-item">
+                                <p>Prihlásený ako {{ Auth::user()->name }}</p>
+                            </li>
+
+                            <li class="nav-item login">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <input type="submit" value="Odhlásenie">
+                                </form>
+                            </li>
+                        @endauth
+
                     </ul>
                 </div>
             </div>

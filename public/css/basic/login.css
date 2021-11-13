@@ -7,7 +7,7 @@
     background-color: #0B0C10;
 }
 
-input[type=text], input[type=password] {
+section input[type=email],section input[type=password] {
     width: 100%;
     margin: 8px 0;
     padding: 12px 20px;
@@ -20,13 +20,18 @@ button:hover {
     opacity: 0.7;
 }
 
-form {
+.rightBlock {
     background-color: #1F2833;
     border-radius: 15px;
+    width: -webkit-fill-available;
     padding: 25px;
+    margin-right: 20px;
+}
+
+section form {
     display: flex;
     flex-direction: column;
-    width: -webkit-fill-available;
+
 }
 
 .halfBlock {
@@ -77,4 +82,9 @@ form a:hover {
 .checkbox p{
     margin-top: 15px;
     margin-left: 20px;
+}
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
 }
