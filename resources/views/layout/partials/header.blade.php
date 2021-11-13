@@ -22,7 +22,7 @@
                     </ul>
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="/shoppingCard">Košík 🛒</a>
+                            <a href="/shoppingCart">Košík 🛒</a>
                         </li>
                         @guest
                             <li class="nav-item login">
@@ -33,7 +33,7 @@
 
                         @auth
                             <li class="nav-item">
-                                <p>Prihlásený ako {{ Auth::user()->name }}</p>
+                                <p>Prihlásený ako {{ Auth::user()->customerInfo->name }}</p>
                             </li>
 
                             <li class="nav-item login">

@@ -16,17 +16,17 @@
                 <x-input id="name" type="text" name="name" :value="old('name')" required autofocus /><br/>
 
                 <label for="street">Ulica: </label>
-                <x-input id="street" type="text" name="name" :value="old('street')" required /><br/>
+                <x-input id="street" type="text" name="street" :value="old('street')" required /><br/>
 
             <div class="cityPostalDiv">
                 <div class="left">
                     <label for="postalCode">PSČ</label>
-                    <x-input id="postalCode" type="text" name="name" :value="old('postalCode')" required /><br/>
+                    <x-input id="postalCode" type="text" name="postalCode" :value="old('postalCode')" required /><br/>
                 </div>
 
                 <div class="right">
                     <label for="city">Mesto</label>
-                    <x-input id="city" type="text" name="name" :value="old('city')" required /><br/>
+                    <x-input id="city" type="text" name="city" :value="old('city')" required /><br/>
                 </div>
             </div><br/>
 

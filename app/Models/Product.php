@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-//    protected $primaryKey = 'product_id';
-    protected $table = 'products';
+
     protected $fillable = [
         'name',
         'shortDescription',
@@ -24,9 +23,13 @@ class Product extends Model
         'bestOfWeek'
     ];
 
+    public function productGroup()
+    {
+        return $this->belongsTo(ProductGroup::class);
+    }
 
     public function images()
     {
-        return $this->hasMany('App\Models\Image', 'id', 'id');
+        return $this->hasMany(Image::class, 'id', 'id');
     }
 }

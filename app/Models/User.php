@@ -18,10 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'street',
-        'postalCode',
-        'city',
+        'admin',
         'email',
         'password',
     ];
@@ -44,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function customerInfo()
+    {
+        return $this->hasOne(CustomerInfo::class, 'customer_info_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
 }

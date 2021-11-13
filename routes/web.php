@@ -20,6 +20,8 @@ Route::get('/contact', 'App\Http\Controllers\ContactController@index');
 
 Route::get('/shopNetwork', 'App\Http\Controllers\ShopNetworkController@index');
 
+Route::get('/shoppingCart', 'App\Http\Controllers\ShoppingCartController@index');
+
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 
 Route::get('/dashboard', function () {
