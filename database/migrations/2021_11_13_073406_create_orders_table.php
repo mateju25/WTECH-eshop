@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomerInfosTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,18 @@ class CreateCustomerInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_infos', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('state');
             $table->unsignedInteger('user_id')->nullable();
-            $table->unsignedInteger('order_id')->nullable();
-            $table->string('name');
-            $table->string('street');
-            $table->string('postalCode');
-            $table->string('city');
-            $table->string('phone');
-            $table->string('email');
+            $table->unsignedInteger('delivery_type_id')->nullable();
+            $table->unsignedInteger('payment_type_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
-            $table->foreign('order_id')->references('id')->on('orders')
-                ->onDelete('cascade');
+            $table->foreign('delivery_type_id')->references('id')->on('delivery_types');
+            $table->foreign('payment_type_id')->references('id')->on('payment_types');
         });
     }
 
@@ -39,6 +35,6 @@ class CreateCustomerInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_infos');
+        Schema::dropIfExists('orders');
     }
 }

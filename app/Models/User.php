@@ -42,12 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function customerInfo()
+    public function customerInfo(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne(CustomerInfo::class, 'customer_info_id', 'id');
+        return $this->hasOne(CustomerInfo::class);
     }
 
-    public function order()
+    public function order(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Order::class);
     }

@@ -78,3 +78,7 @@ input[type=radio] {
 .leftBtn {
     float: left;
 }
+
+.dataFromProfile {
+    height: 100px;
+}

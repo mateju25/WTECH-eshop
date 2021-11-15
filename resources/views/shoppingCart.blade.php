@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    @if(!($order->productGroups))
+    @if(count($order->productGroups) == 0)
         <section class="itemTypes">
             <p>V košíku sa nič nenachádza</p>
         </section>
@@ -20,29 +20,35 @@
                     </div>
                     <div class="textPart">
                         <h2>{{$productGroup->product->name}}</h2>
-                        <p>{{$productGroup->shortDescription}}</p>
+                        <p>{{$productGroup->product->shortDescription}}</p>
                     </div>
                 </div>
                 <div class="rightPart">
                     <div class="functionalPart">
                         <label for="amount-selector">
-                            <span>Počet kusov:</span>
-                            <select id="amount-selector" name="amount">
-                                <option value="1">{{$productGroup->quantity}}</option>
-                            </select>
+                            <form action="{{ route('shoppingCart.update',$productGroup->product->id) }}" method="post">
+                                @method('put')
+                                @csrf
+                                <label for="amount" >Počet kusov:</label>
+                                <input id="amount" name="quantity" type="number" min="1" value="{{(int) $productGroup->quantity}}"/>
+                                <input type="submit" class="buttonBlack" value="OK"/>
+                            </form>
                         </label>
-                        <h2>{{$productGroup->sum}}</h2>
+                        <h2>{{$productGroup->sum()}} €</h2>
                     </div>
-                    <div class="closePart">
-                        <button>X</button>
-                    </div>
+                    <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <input type="submit" class="buttonBlack" value="X"/>
+                    </form>
                 </div>
             </section>
         @endforeach
 
         <section class="summaryInfo">
-            <p>Spolu: {{$order->totalSum}} €</p>
-            <a class="buttonBlack" href="/delivery">Pokračovať</a>
+            <a class="buttonBlack" href="{{ $previousPage }}">Späť</a>
+            <p>Spolu: {{$order->totalSum()}} €</p>
+            <a class="buttonBlack" href="/shoppingCartDelivery">Pokračovať</a>
         </section>
     @endif
 @endsection

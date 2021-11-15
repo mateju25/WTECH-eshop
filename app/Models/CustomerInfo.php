@@ -11,6 +11,8 @@ class CustomerInfo extends Model
 
     protected $fillable = [
         'name',
+        'user_id',
+        'order_id',
         'street',
         'postalCode',
         'city',

@@ -25,11 +25,11 @@ class Product extends Model
 
     public function productGroup()
     {
-        return $this->belongsTo(ProductGroup::class);
+        return $this->hasOne(ProductGroup::class );
     }
 
     public function images()
     {
-        return $this->hasMany(Image::class, 'id', 'id');
+        return $this->hasMany(Image::class);
     }
 }

@@ -11,6 +11,8 @@ class ProductGroup extends Model
 
     protected $fillable = [
         'quantity',
+        'order_id',
+        'product_id'
     ];
 
     public function order()
@@ -20,11 +22,11 @@ class ProductGroup extends Model
 
     public function product()
     {
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 
-    public function sum(): float|int
+    public function scopeSum(): float|int
     {
-        return $this->product()->prize * $this->quantity;
+        return $this->product()->first()->prize * $this->quantity;
     }
 }

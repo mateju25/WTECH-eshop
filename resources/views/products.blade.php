@@ -84,7 +84,12 @@
                              width="280">
                     </a>
                     <p class="price">{{$product->prize}} €</p>
-                    <a href="/shoppingCard" class="buttonBlack">Pridat do kosika</a>
+                    <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
+                        @method('put')
+                        @csrf
+                        <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                    </form>
                 </div>
             </article>
             @endforeach

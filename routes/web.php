@@ -20,7 +20,11 @@ Route::get('/contact', 'App\Http\Controllers\ContactController@index');
 
 Route::get('/shopNetwork', 'App\Http\Controllers\ShopNetworkController@index');
 
-Route::get('/shoppingCart', 'App\Http\Controllers\ShoppingCartController@index');
+Route::resource('/shoppingCart', 'App\Http\Controllers\ShoppingCartController');
+
+Route::resource('/shoppingCartDelivery', 'App\Http\Controllers\ShoppingCartDeliveryController');
+
+Route::resource('/shoppingCartPayment', 'App\Http\Controllers\ShoppingCartPaymentController');
 
 Route::resource('/products', 'App\Http\Controllers\ProductController');
 
