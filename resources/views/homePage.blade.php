@@ -98,12 +98,14 @@
         <section id="bestOfWeek" class="bestOfWeek">
             <div class="leftPart">
                 <h1>HIT TÝŽDŇA</h1>
-                <img class="bestOfWeekImg" srcset="{{ asset($bestOfWeek->image.'_200.jpg') }} 480w,
+                <a href="/products/{{$bestOfWeek->id}}">
+                    <img class="bestOfWeekImg" srcset="{{ asset($bestOfWeek->image.'_200.jpg') }} 480w,
                      {{ asset($bestOfWeek->image.'_300.jpg') }} 800w"
-                     sizes="(max-width: 600px) 480px, 800px"
-                     src="{{ asset($bestOfWeek->image.'.jpg') }}"
-                     alt="Hit týždňa"
-                     width="350" height="350">
+                         sizes="(max-width: 600px) 480px, 800px"
+                         src="{{ asset($bestOfWeek->image.'.jpg') }}"
+                         alt="Hit týždňa"
+                         width="350" height="350">
+                </a>
                 <p class="floatedDiscount">Zľava 50%</p>
             </div>
             <div class="rightPart">
@@ -132,7 +134,7 @@
                 <div>
                     <div class="sliderElement">
                         <div class="sliderInnerElement">
-                            <a href="productDetail.html?query=idProduktu">
+                            <a href="/products/{{$product->id}}">
                                 <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
                                  {{ asset($product->image.'_300.jpg') }} 800w"
                                      sizes="(max-width: 600px) 480px, 800px"

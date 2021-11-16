@@ -16,7 +16,9 @@
             <section class="itemTypes">
                 <div class="leftPart">
                     <div class="imagePart">
-                        <img src="{{ asset('images/products/climbingShoes/lezecka1.jpg') }}" alt="Lezecka">
+                        <a href="/products/{{$productGroup->product->id}}">
+                            <img src="{{ asset('images/products/climbingShoes/lezecka1.jpg') }}" alt="Lezecka">
+                        </a>
                     </div>
                     <div class="textPart">
                         <h2>{{$productGroup->product->name}}</h2>
@@ -29,14 +31,16 @@
                             <form action="{{ route('shoppingCart.update',$productGroup->product->id) }}" method="post">
                                 @method('put')
                                 @csrf
-                                <label for="amount" >Počet kusov:</label>
-                                <input id="amount" name="quantity" type="number" min="1" value="{{(int) $productGroup->quantity}}"/>
+                                <label for="amount">Počet kusov:</label>
+                                <input id="amount" name="quantity" type="number" min="1"
+                                       value="{{(int) $productGroup->quantity}}"/>
                                 <input type="submit" class="buttonBlack" value="OK"/>
                             </form>
                         </label>
                         <h2>{{$productGroup->sum()}} €</h2>
                     </div>
-                    <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}" method="post">
+                    <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}"
+                          method="post">
                         @method('delete')
                         @csrf
                         <input type="submit" class="buttonBlack" value="X"/>

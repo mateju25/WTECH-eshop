@@ -27,6 +27,6 @@ class ProductGroup extends Model
 
     public function scopeSum(): float|int
     {
-        return $this->product()->first()->prize * $this->quantity;
+        return ($this->product()->first()->discountedPrize != null ? $this->product()->first()->discountedPrize : $this->product()->first()->prize) * $this->quantity;
     }
 }

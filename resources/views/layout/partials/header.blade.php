@@ -13,11 +13,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="/products">Produkty</a>
-
+                            <form method="get" action="{{ route('products.index')}}">
+                                <input type="submit" value="Produkty" />
+                            </form>
                         </li>
                         <li class="nav-item">
-                            <a href="/products">Zľavy</a>
+                            <form method="get" action="{{ route('products.index')}}">
+                                <input type="hidden" style="display: none" name="discount" value="{{true}}">
+                                <input type="submit" value="Zľavy"/>
+                            </form>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">

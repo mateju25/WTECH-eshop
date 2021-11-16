@@ -132,11 +132,22 @@
                                      alt="{{$product->name}}"
                                      width="280">
                             </a>
-                            <p class="price">{{$product->prize}} €</p>
+
+                            @if($product->discountedPrize)
+                                <div>
+                                    <h2 class="price">{{$product->discountedPrize}}</h2>
+                                    <h2 class="crossedPrice">{{$product->prize}}</h2>
+                                </div>
+                            @else
+                                <h2 class="price">{{$product->prize}} €</h2>
+                            @endif
+
                             <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
                                 @method('put')
                                 @csrf
-                                <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                                <label for="amount">Počet kusov:</label>
+                                <input id="amount" name="quantity" type="number" min="1"
+                                       value="1"/>
                                 <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
                             </form>
                         </div>

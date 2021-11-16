@@ -46,7 +46,7 @@ class Order extends Model
         $total = 0;
 
         foreach ($this->productGroups as $productGroup)
-            $total += $productGroup->product->prize * $productGroup->quantity;
+            $total += $productGroup->sum();
 
         return $total;
     }

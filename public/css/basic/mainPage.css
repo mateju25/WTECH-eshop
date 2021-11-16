@@ -80,12 +80,6 @@
     width: -webkit-fill-available;
 }
 
-.crossedPrice {
-    text-decoration: line-through;
-    margin-left: 20px;
-    color: red;
-}
-
 .rightPart div h2 {
     float: left;
     padding-top: 20px;

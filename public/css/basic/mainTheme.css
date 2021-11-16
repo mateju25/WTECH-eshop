@@ -272,3 +272,11 @@ footer .bottomLogoSection{
     max-width: 150px;
     text-align: center;
 }
+
+
+.crossedPrice {
+    text-decoration: line-through;
+    margin-left: 20px;
+    color: red;
+}
+

@@ -37,11 +37,20 @@
 
 
                     </div>
-                    <h2>{{$product->prize}}</h2>
+                    @if($product->discountedPrize)
+                        <div>
+                            <h2 class="price">{{$product->discountedPrize}}</h2>
+                            <h2 class="crossedPrice">{{$product->prize}}</h2>
+                        </div>
+                    @else
+                        <h2 class="price">{{$product->prize}} €</h2>
+                    @endif
                     <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
                         @method('put')
                         @csrf
-                        <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                        <label for="amount">Počet kusov:</label>
+                        <input id="amount" name="quantity" type="number" min="1"
+                               value="1"/>
                         <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
                     </form>
                 </div>
@@ -54,7 +63,7 @@
                     <div>
                         <div class="sliderElement">
                             <div class="sliderInnerElement">
-                                <a href="productDetail.html?query=idProduktu">
+                                <a href="/products/{{$product->id}}">
                                     <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
                                  {{ asset($product->image.'_300.jpg') }} 800w"
                                          sizes="(max-width: 600px) 480px, 800px"

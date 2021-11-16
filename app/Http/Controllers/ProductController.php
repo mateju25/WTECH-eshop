@@ -39,6 +39,9 @@ class ProductController extends Controller
         if ($request['search'])
             $products = $products->where('name', 'ILIKE', '%' . $request['search'] . '%');
 
+        if ($request['discount'])
+            $products = $products->whereNotNull('discountedPrize');
+
         if ($request['prizeRangeTo'])
             $products = $products->where('prize', '<=', $request['prizeRangeTo']);
 
@@ -58,7 +61,7 @@ class ProductController extends Controller
             $products = $products->orderBy('rating', $request['rating']);
 
         return view('products')
-            ->with('productsList', $products->paginate(12))
+            ->with('productsList', $products->paginate(6))
             ->with('businessTypeList',  BusinessType::all())
             ->with('categoryList', Category::all())
             ->with('request', $request);
