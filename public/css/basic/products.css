@@ -114,6 +114,11 @@ a:hover {
     padding-bottom: 25px;
 }
 
+.allProducts p{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
 .gridItem h1 {
     font-size: 2rem;
     text-align: center;

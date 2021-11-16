@@ -64,9 +64,16 @@ input[type=radio] {
     margin-top: 5px;
 }
 
+.itemTypes{
+    text-align: center;
+}
 
 .nextToEachOther {
     display: flex;
+}
+
+#allPaid p{
+    margin: 0px;
 }
 
 .nextToEachOther label {
