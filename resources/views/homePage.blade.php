@@ -120,7 +120,7 @@
                         @method('put')
                         @csrf
                         <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
-                        <input type="submit" class="buttonWhite" value="Pridať do košíka"/>
+                        <input type="submit" class="floatRight buttonWhite" value="Pridať do košíka"/>
                     </form>
                 </div>
             </div>

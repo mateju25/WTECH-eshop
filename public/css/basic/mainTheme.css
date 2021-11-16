@@ -70,6 +70,9 @@ header .headingInput {
     padding-right: 2rem;
 }
 
+.floatRight{
+    float: right;
+}
 .change{
     border: 0;
     text-align: center;
@@ -318,7 +321,7 @@ footer .bottomLogoSection{
 
 .crossedPrice {
     text-decoration: line-through;
-    margin-left: 5px;
+    margin-left: 10px;
     color: red;
 }
 
