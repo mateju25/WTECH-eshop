@@ -30,10 +30,12 @@
                 </fieldset>
                 <fieldset class="functionalPart">
                     <div class="rightPart">
-                        <input class="buttonBlack" id="paymentBtn" type="submit" value="Platba"/>
+                        <input class="buttonWhite floatButton" id="paymentBtn" type="submit" value="Platba"/>
+                        <a class="buttonWhite floatButton" href="/shoppingCartDelivery">Späť</a>
                         <h2 class="price">{{$order->totalSumWithDelivery()}} €</h2>
+
                     </div>
-                    <a class="buttonBlack" href="/shoppingCartDelivery">Späť</a>
+
                 </fieldset>
             </form>
         </section>

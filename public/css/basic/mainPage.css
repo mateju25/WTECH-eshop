@@ -49,6 +49,14 @@
     margin: 10px;
 }
 
+.menuButton{
+    max-height: 200px;
+    max-width: 200px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
 .floatedDiscount {
     position: absolute;
     background-color: #45A29E;
@@ -87,6 +95,10 @@
 
 .pricePart {
     margin-left: 20px;
+}
+
+.pricePart h2{
+    margin-top: 15px;
 }
 
 /*#endregion Best Of Week*/

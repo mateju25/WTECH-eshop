@@ -21,9 +21,26 @@ main section {
     width: -webkit-fill-available;
 }
 
+.floatButton{
+    float: right;
+}
+
+#profile{
+    float: right;
+}
+
+.navbar form{
+    margin: 0px;
+}
+
+
 .spacing label {
     width: 33%;
 
+}
+
+#allPaid{
+    text-align: center;
 }
 
 .spacing label:not(:first-child) {

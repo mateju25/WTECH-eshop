@@ -13,6 +13,13 @@
 
 
 @media (max-width: 992px) {
+    .mb-2, .my-2 {
+        margin-bottom: 0 !important;
+    }
+
+    .change{
+        float: left;
+    }
     header img {
         width: 400px;
     }
@@ -21,19 +28,19 @@
         justify-content: space-between;
     }
 
+
+
     .row button {
-        transform: scale(1.5);
-        margin-right: 20px;
+        transform: scale(1.0);
+
         height: 100%;
-        margin-top: 30px;
+
     }
     .searchTerm {
         width: 50%;
     }
 
-    header a {
-        font-size: 40px;
-    }
+
     .navbar-collapse {
         border-top: 2px solid rgb(102, 252, 241);
     }
@@ -47,10 +54,10 @@
         margin: 40px 0px 5px 30px;
     }
 
-    .gridItem img {
-        height: 180px;
-        width: 180px;
+    .menuButton{
+        margin: 0;
     }
+
 
     p {
         font-size: 30px;
@@ -79,13 +86,14 @@
         width: 300px;
     }
     .row button {
-        margin-right: 20px;
+
         height: 100%;
-        margin-top: 15px;
+
     }
 }
 
 @media (max-width: 576px) {
+
     .container-fluid {
         flex-direction: column;
     }

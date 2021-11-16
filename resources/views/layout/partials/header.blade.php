@@ -14,13 +14,13 @@
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <form method="get" action="{{ route('products.index')}}">
-                                <input type="submit" value="Produkty" />
+                                <input class="headingInput" type="submit" value="Produkty" />
                             </form>
                         </li>
                         <li class="nav-item">
                             <form method="get" action="{{ route('products.index')}}">
-                                <input type="hidden" style="display: none" name="discount" value="{{true}}">
-                                <input type="submit" value="Zľavy"/>
+                                <input class="headingInput" type="hidden" style="display: none" name="discount" value="{{true}}">
+                                <input class="headingInput" type="submit" value="Zľavy"/>
                             </form>
                         </li>
                     </ul>
@@ -37,13 +37,13 @@
 
                         @auth
                             <li class="nav-item">
-                                <p>Prihlásený ako {{ Auth::user()->customerInfo->name }}</p>
+                                <p class="loggedUser">Prihlásený: {{ Auth::user()->customerInfo->name }}</p>
                             </li>
 
                             <li class="nav-item login">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <input type="submit" value="Odhlásenie">
+                                    <input class="change" type="submit" value="Odhlásenie">
                                 </form>
                             </li>
                         @endauth

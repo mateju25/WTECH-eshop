@@ -112,7 +112,7 @@
             </fieldset>
             <fieldset class="lastPart grid col-lg-3 col-sm-6">
                 <div>
-                    <input type="submit" class="buttonBlack" value="Filtruj">
+                    <input type="submit" class="buttonWhite" value="Filtruj">
                 </div>
             </fieldset>
         </form>
@@ -134,7 +134,7 @@
                             </a>
 
                             @if($product->discountedPrize)
-                                <div>
+                                <div class="uvidime">
                                     <h2 class="price">{{$product->discountedPrize}}</h2>
                                     <h2 class="crossedPrice">{{$product->prize}}</h2>
                                 </div>
@@ -142,20 +142,20 @@
                                 <h2 class="price">{{$product->prize}} €</h2>
                             @endif
 
-                            <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
+                            <form action="{{ route('shoppingCart.update',$product->id) }}" method="post" class="alignMiddle">
                                 @method('put')
                                 @csrf
                                 <label for="amount">Počet kusov:</label>
                                 <input id="amount" name="quantity" type="number" min="1"
                                        value="1"/>
-                                <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                                <input type="submit" class="buttonWhite" value="Pridať do košíka"/>
                             </form>
                         </div>
                     </article>
                 @endforeach
             </div>
         @else
-            <p>Bohužiaľ takéto produkty nemáme.</p>
+            <p class="center">Bohužiaľ takéto produkty nemáme.</p>
         @endif
     </section>
     @if(count($productsList) != 0)

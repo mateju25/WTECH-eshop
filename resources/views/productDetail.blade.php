@@ -51,7 +51,7 @@
                         <label for="amount">Počet kusov:</label>
                         <input id="amount" name="quantity" type="number" min="1"
                                value="1"/>
-                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                        <input type="submit" class="buttonWhite" value="Pridať do košíka"/>
                     </form>
                 </div>
             </div>

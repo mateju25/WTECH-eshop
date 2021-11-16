@@ -9,7 +9,7 @@
 @section('content')
     @if(count($order->productGroups) == 0)
         <section class="itemTypes">
-            <p>V košíku sa nič nenachádza</p>
+            <p class="middle">V košíku sa nič nenachádza</p>
         </section>
     @else
         @foreach($order->productGroups as $productGroup)
@@ -31,28 +31,32 @@
                             <form action="{{ route('shoppingCart.update',$productGroup->product->id) }}" method="post">
                                 @method('put')
                                 @csrf
-                                <label for="amount">Počet kusov:</label>
-                                <input id="amount" name="quantity" type="number" min="1"
+                                <label class="moveDown" for="amount">Počet kusov:</label>
+                                <input class="moveDown" id="amount" name="quantity" type="number" min="1"
                                        value="{{(int) $productGroup->quantity}}"/>
-                                <input type="submit" class="buttonBlack" value="OK"/>
+                                <input type="submit" class="sizeDown buttonBlack" value="OK"/>
                             </form>
                         </label>
                         <h2>{{$productGroup->sum()}} €</h2>
                     </div>
+
+                </div>
+
                     <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}"
                           method="post">
                         @method('delete')
                         @csrf
-                        <input type="submit" class="buttonBlack" value="X"/>
+                        <input type="submit" class="sameMargin buttonBlack" value="X"/>
                     </form>
-                </div>
+
+
             </section>
         @endforeach
 
         <section class="summaryInfo">
-            <a class="buttonBlack" href="{{ $previousPage }}">Späť</a>
+            <a class="buttonWhite" href="{{ $previousPage }}">Späť</a>
             <p>Spolu: {{$order->totalSum()}} €</p>
-            <a class="buttonBlack" href="/shoppingCartDelivery">Pokračovať</a>
+            <a class="buttonWhite" href="/shoppingCartDelivery">Pokračovať</a>
         </section>
     @endif
 @endsection

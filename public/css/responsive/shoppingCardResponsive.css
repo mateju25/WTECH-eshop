@@ -11,12 +11,22 @@
     .productInfo {
         flex-direction: column;
     }
+
+    .textPart h2{
+
+    }
     .textPart p {
         display: none;
     }
     .imagePart img {
-        max-width: 70%;
+        max-width: 100%;
     }
+    .imagePart a {
+        width: 200px;
+        height: 200px;
+    }
+
+
     .imagePart {
         width: 85%;
     }
@@ -41,20 +51,50 @@
     .closePart button {
         font-size: 30px;
     }
+    .sizeDown{
+        margin-top: 5px;
+    }
 }
 
 @media (max-width: 768px) {
+    .middle{
+        width: 100%;
+    }
+    /*closeBTN*/
     .itemTypes {
+        display: flex;
         flex-direction: column;
+
     }
     .leftPart {
         width: 100%;
     }
     .rightPart {
         width: 100%;
+
     }
     .functionalPart {
-        width: 90%;
+
+        width: 100%;
+    }
+
+    .moveDown{
+        margin-top: 15px;
+    }
+    .closePart{
+        width: 100%;
+        height: 1%;
+    }
+    .sameMargin{
+        margin: 5px;
+    }
+
+    .closePart { order: 1; }
+    .leftPart{ order: 2; }
+    .rightPart { order: 3; }
+
+    .sizeDown{
+        margin-left: 5px;
     }
 }
 

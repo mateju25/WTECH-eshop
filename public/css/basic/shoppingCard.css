@@ -18,8 +18,10 @@
     max-width: 100%;
 }
 
+
+
 .functionalPart {
-    width: 95%;
+    width: 70%;
     margin: 10px 0 10px 0;
     display: flex;
     flex-direction: column;
@@ -42,10 +44,22 @@
 
 .leftPart {
     display: flex;
-    width: 75%;
+    width: 70%;
+}
+
+.middle{
+    width: 1344px;
+    text-align: center;
 }
 
 .rightPart {
     display: flex;
-    width: 25%;
+    width: 30%;
 }
+
+.closePart{
+    width: 10%;
+}
+
+
+

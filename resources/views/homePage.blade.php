@@ -13,7 +13,7 @@
                     <h2>Lezečky</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_1" value="1">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/lezecky.jpg') }}"
                                  alt="Lezec.sk"
@@ -27,7 +27,7 @@
                     <h2>Kurzy</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_2" value="2">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/kurz.jpg') }}"
                                  alt="Lezec.sk"
@@ -41,7 +41,7 @@
                     <h2>Výbava</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_4" value="4">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/vybava.jpg') }}"
                                  alt="Lezec.sk"
@@ -55,7 +55,7 @@
                     <h2>Laná</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_5" value="5">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/lano.jpg') }}"
                                  alt="Lezec.sk"
@@ -69,7 +69,7 @@
                     <h2>Sety</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_3" value="3">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/set.jpg') }}"
                                  alt="Lezec.sk"
@@ -83,7 +83,7 @@
                     <h2>Ostatné</h2>
                     <form method="get" action="{{ route('products.index')}}">
                         <input type="hidden" style="display: none" name="category_6" value="6">
-                        <button type="submit">
+                        <button class="menuButton" type="submit">
                             <img class="menuPicture"
                                  src="{{ asset('images/mainPage/vrecko.jpg') }}"
                                  alt="Lezec.sk"
@@ -120,7 +120,7 @@
                         @method('put')
                         @csrf
                         <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
-                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                        <input type="submit" class="buttonWhite" value="Pridať do košíka"/>
                     </form>
                 </div>
             </div>

@@ -15,7 +15,7 @@
         <section>
             @auth
                 <div class="dataFromProfile">
-                    <button id="profile" class="buttonBlack">Vyplň údaje z profilu</button>
+                    <button id="profile" class="buttonWhite floatButton">Vyplň údaje z profilu</button>
                 </div>
             @endauth
             <form action="{{ route('shoppingCartDelivery.store')}}" method="post">
@@ -76,9 +76,9 @@
                 </fieldset>
 
                 <fieldset class="functionalPart">
-                    <input class="buttonBlack" type="submit" value="Pokračovať"/>
+                    <input class="buttonWhite floatButton" type="submit" value="Pokračovať"/>
 
-                    <a class="buttonBlack" href="/shoppingCart">Späť</a>
+                    <a class="buttonWhite floatButton" href="/shoppingCart">Späť</a>
                 </fieldset>
             </form>
         </section>
