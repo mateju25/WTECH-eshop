@@ -18,15 +18,19 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('shortDescription');
             $table->text('longDescription');
-            $table->string('businessType');
-            $table->string('size');
+            $table->unsignedInteger('business_type_id');
+            $table->unsignedInteger('category_id');
             $table->float('prize');
-            $table->float('discountedPrize');
+            $table->float('discountedPrize')->nullable();
             $table->integer('soldedCount');
             $table->float('rating');
             $table->boolean('top');
             $table->boolean('bestOfWeek');
+            $table->string('image');
             $table->timestamps();
+
+            $table->foreign('business_type_id')->references('id')->on('business_types');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

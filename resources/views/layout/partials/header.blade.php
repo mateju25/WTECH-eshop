@@ -47,8 +47,8 @@
                     </ul>
                 </div>
             </div>
-            <form class="halfSearch">
-                <input type="text" class="searchTerm" placeholder="Názov produktu">
+            <form method="get" action="{{ route('products.index')}}" class="halfSearch">
+                <input type="text" class="searchTerm" placeholder="Názov produktu" name="search"/>
                 <button type="submit" class="searchButton">
                     <i class="fa fa-search"></i>
                 </button>

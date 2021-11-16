@@ -11,67 +11,85 @@
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Lezečky</h2>
-                    <a href="products.html?query=lezecky">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/lezecky_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_1" value="1">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/lezecky.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Kurzy</h2>
-                    <a href="products.html?query=kurzy">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/kurz_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_2" value="2">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/kurz.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Výbava</h2>
-                    <a href="products.html?query=vybava">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/vybava_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_4" value="4">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/vybava.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Laná</h2>
-                    <a href="products.html?query=lano">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/lano_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_5" value="5">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/lano.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Sety</h2>
-                    <a href="products.html?query=set">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/set_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_3" value="3">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/set.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="grid col-lg-4 col-sm-6">
                 <div class="gridItem">
                     <h2>Ostatné</h2>
-                    <a href="products.html?query=ostatne">
-                        <img class="menuPicture"
-                             src="{{ asset('images/mainPage/vrecko_400.jpg') }}"
-                             alt="Lezec.sk"
-                             width="140" height="140">
-                    </a>
+                    <form method="get" action="{{ route('products.index')}}">
+                        <input type="hidden" style="display: none" name="category_6" value="6">
+                        <button type="submit">
+                            <img class="menuPicture"
+                                 src="{{ asset('images/mainPage/vrecko.jpg') }}"
+                                 alt="Lezec.sk"
+                                 width="140" height="140">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -80,10 +98,10 @@
         <section id="bestOfWeek" class="bestOfWeek">
             <div class="leftPart">
                 <h1>HIT TÝŽDŇA</h1>
-                <img class="bestOfWeekImg" srcset="{{ asset('images/mainPage/bestOfWeek_200.png') }} 480w,
-                     {{ asset('images/mainPage/bestOfWeek_400.png') }} 800w"
+                <img class="bestOfWeekImg" srcset="{{ asset($bestOfWeek->image.'_200.jpg') }} 480w,
+                     {{ asset($bestOfWeek->image.'_300.jpg') }} 800w"
                      sizes="(max-width: 600px) 480px, 800px"
-                     src="{{ asset('images/mainPage/bestOfWeek_400.png') }}"
+                     src="{{ asset($bestOfWeek->image.'.jpg') }}"
                      alt="Hit týždňa"
                      width="350" height="350">
                 <p class="floatedDiscount">Zľava 50%</p>
@@ -96,7 +114,12 @@
                         <h2>{{$bestOfWeek->discountedPrize}}</h2>
                         <h2 class="crossedPrice">{{$bestOfWeek->prize}}</h2>
                     </div>
-                    <a href="shoppingCard.html" class="buttonWhite">Kúpiť</a>
+                    <form action="{{ route('shoppingCart.update',$bestOfWeek->id) }}" method="post">
+                        @method('put')
+                        @csrf
+                        <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                    </form>
                 </div>
             </div>
         </section>
@@ -106,22 +129,22 @@
         <h1>Odporúčame</h1>
         <div class="slider">
             @foreach($recommendProducts as $product)
-            <div>
-                <div class="sliderElement">
-                    <div class="sliderInnerElement">
-                        <a href="productDetail.html?query=idProduktu">
-                            <img srcset="{{ asset('images/mainPage/bestOfWeek_200.png') }} 480w,
-                                 {{ asset('images/mainPage/bestOfWeek_400.png') }} 800w"
-                                 sizes="(max-width: 600px) 480px, 800px"
-                                 src="{{ asset('images/mainPage/bestOfWeek_400.png') }}"
-                                 alt="Odporucame"
-                                 width="200" height="200">
-                        </a>
-                        <p>{{$product->name}}</p>
-                        <p>{{$product->prize}} €</p>
+                <div>
+                    <div class="sliderElement">
+                        <div class="sliderInnerElement">
+                            <a href="productDetail.html?query=idProduktu">
+                                <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
+                                 {{ asset($product->image.'_300.jpg') }} 800w"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{{ asset($product->image.'.jpg') }}"
+                                     alt="Odporucame"
+                                     width="200" height="200">
+                            </a>
+                            <p>{{$product->name}}</p>
+                            <p>{{$product->prize}} €</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
         </br>

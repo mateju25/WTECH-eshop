@@ -13,7 +13,8 @@ class Product extends Model
         'name',
         'shortDescription',
         'longDescription',
-        'businessType',
+        'business_type_id',
+        'category_id',
         'size',
         'prize',
         'discountedPrize',
@@ -28,8 +29,13 @@ class Product extends Model
         return $this->hasOne(ProductGroup::class );
     }
 
-    public function images()
+    public function category()
     {
-        return $this->hasMany(Image::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function businessType()
+    {
+        return $this->belongsTo(BusinessType::class);
     }
 }

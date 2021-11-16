@@ -7,59 +7,107 @@
 
 @section('content')
     <section class="searchOptions">
-        <a href="/products"><span style="white-space: nowrap">Top</span></a>
-        <a href="/products"><span style="white-space: nowrap">Najpredávanejšie</span></a>
-        <a href="/products"><span style="white-space: nowrap">Najdrahšie</span></a>
-        <a href="/products"><span style="white-space: nowrap">Najlacnejšie</span></a>
-        <a href="/products"><span style="white-space: nowrap">Top podľa recenzií</span></a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Top
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <form method="get" action="{{ route('products.index')}}">
+                    <button class="dropdown-item" type="submit" name="top" value="ASC">Top prvé</button>
+                    <button class="dropdown-item" type="submit" name="top" value="DESC">Top posledné</button>
+                </form>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Najpredávanejšie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <form method="get" action="{{ route('products.index')}}">
+                    <button class="dropdown-item" type="submit" name="soldedCount" value="DESC">Najpredávanejšie prvé
+                    </button>
+                    <button class="dropdown-item" type="submit" name="soldedCount" value="ASC">Najpredávanejšie
+                        posledné
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cena
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <form method="get" action="{{ route('products.index')}}">
+                    <button class="dropdown-item" type="submit" name="prize" value="DESC">Najdrahšie</button>
+                    <button class="dropdown-item" type="submit" name="prize" value="ASC">Najlacnejšie</button>
+                </form>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Top podľa recenzií
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <form method="get" action="{{ route('products.index')}}">
+                    <button class="dropdown-item" type="submit" name="rating" value="DESC">Top podľa recenzií prvé
+                    </button>
+                    <button class="dropdown-item" type="submit" name="rating" value="ASC">Top podľa recenzií posledné
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
     <section class="filtering">
-        <form class="formFiltering row align-items-center">
+        <form method="get" action="{{ route('products.index')}}" class="formFiltering row align-items-center">
             <fieldset class="grid col-lg-3 col-sm-6">
-                <legend>Cena</legend>
-                <label for="priceRange" id="priceRangeLbl">100 €</label>
-                <input type="range" class="form-range" min="0" max="200" step="1" id="priceRange">
-            </fieldset>
-            <fieldset class="grid col-lg-3 col-sm-6">
-                <legend>Veľkosť</legend>
-                <div class="row align-items-center">
-                    <div class="grid col-6">
-                        <input type="checkbox" id="sizeM" name="sizeM">
-                        <label for="sizeM">M</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="sizeS" name="sizeM">
-                        <label for="sizeS">S</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="sizeL" name="sizeM">
-                        <label for="sizeL">L</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="sizeXL" name="sizeM">
-                        <label for="sizeXL">XL</label>
-                    </div>
+                <div>
+                    <legend>Cena od</legend>
+                    <label for="prizeRangeFrom"
+                           id="prizeRangeFromLbl">@if($request->prizeRangeFrom){{$request->prizeRangeFrom}} @else
+                            0  @endif €</label>
+                    <input type="range" class="form-range" min="0" max="400" step="1" id="prizeRangeFrom"
+                           name="prizeRangeFrom"
+                           value="@if($request->prizeRangeFrom){{$request->prizeRangeFrom}}@else{{0}}@endif">
+                </div>
+
+                <div>
+                    <legend>Cena do</legend>
+                    <label for="prizeRangeTo"
+                           id="prizeRangeToLbl">@if($request->prizeRangeTo){{$request->prizeRangeTo}} @else
+                            400  @endif €</label>
+                    <input type="range" class="form-range" min="0" max="400" step="1" id="prizeRangeTo"
+                           name="prizeRangeTo"
+                           value="@if($request->prizeRangeTo){{$request->prizeRangeTo}}@else{{400}}@endif">
                 </div>
             </fieldset>
             <fieldset class="grid col-lg-3 col-sm-6">
                 <legend>Značka</legend>
                 <div class="row align-items-center">
-                    <div class="grid col-6">
-                        <input type="checkbox" id="ocun" name="sizeM">
-                        <label for="ocun">Ocun</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="petzl" name="sizeM">
-                        <label for="petzl">Petzl</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="ortovox" name="sizeM">
-                        <label for="ortovox">Ortovox</label>
-                    </div>
-                    <div class="grid col-6">
-                        <input type="checkbox" id="singingRock" name="sizeM">
-                        <label for="singingRock">Singing Rock</label>
-                    </div>
+                    @foreach($businessTypeList as $businessType)
+                        <div class="grid col-6">
+                            <input type="checkbox" id="businessType_{{$businessType->id}}"
+                                   name="businessType_{{$businessType->id}}" value="{{$businessType->id}}"
+                                   @if($request['businessType_'.$businessType->id]) checked @endif>
+                            <label for="businessType_{{$businessType->id}}">{{$businessType->name}}</label>
+                        </div>
+                    @endforeach
+                </div>
+            </fieldset>
+            <fieldset class="grid col-lg-3 col-sm-6">
+                <legend>Druh</legend>
+                <div class="row align-items-center">
+                    @foreach($categoryList as $category)
+                        <div class="grid col-6">
+                            <input type="checkbox" id="category_{{$category->id}}" name="category_{{$category->id}}"
+                                   value="{{$category->id}}" value="{{$businessType->id}}"
+                                   @if($request['category_'.$category->id]) checked @endif>
+                            <label for="category_{{$category->id}}">{{$category->name}}</label>
+                        </div>
+                    @endforeach
                 </div>
             </fieldset>
             <fieldset class="lastPart grid col-lg-3 col-sm-6">
@@ -70,46 +118,55 @@
         </form>
     </section>
     <section class="allProducts">
-        <div class="row align-items-center">
-            @foreach($productsList as $product)
-            <article class="grid col-lg-4 col-sm-6">
-                <div class="gridItem">
-                    <h1>{{$product->name}}</h1>
-                    <a href="/products/{{$product->id}}">
-                        <img srcset="{{ asset('images/mainPage/bestOfWeek_200.png') }} 480w,
-                             {{ asset('images/mainPage/bestOfWeek_400.png') }} 800w"
-                             sizes="(max-width: 600px) 480px, 800px"
-                             src="{{ asset('images/mainPage/bestOfWeek_400.png') }}"
-                             alt="{{$product->name}}"
-                             width="280">
-                    </a>
-                    <p class="price">{{$product->prize}} €</p>
-                    <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
-                        @method('put')
-                        @csrf
-                        <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
-                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
-                    </form>
-                </div>
-            </article>
-            @endforeach
-        </div>
-
-    </section>
-    <section class="padding">
-        @if ($productsList->hasPages())
-                {{ $productsList->links() }}
+        @if(count($productsList) != 0)
+            <div class="row align-items-center">
+                @foreach($productsList as $product)
+                    <article class="grid col-lg-4 col-sm-6">
+                        <div class="gridItem">
+                            <h1>{{$product->name}}</h1>
+                            <a href="/products/{{$product->id}}">
+                                <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
+                             {{ asset($product->image.'_300.jpg') }} 800w"
+                                     sizes="(max-width: 600px) 480px, 800px"
+                                     src="{{ asset($product->image.'.jpg') }}"
+                                     alt="{{$product->name}}"
+                                     width="280">
+                            </a>
+                            <p class="price">{{$product->prize}} €</p>
+                            <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
+                                @method('put')
+                                @csrf
+                                <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                                <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                            </form>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
         @else
-            <p>Všetky výsledky zobrazené</p>
+            <p>Bohužiaľ takéto produkty nemáme.</p>
         @endif
     </section>
+    @if(count($productsList) != 0)
+        <section class="padding">
+            @if ($productsList->hasPages())
+                {{ $productsList->links() }}
+            @else
+                <p>Všetky výsledky zobrazené</p>
+            @endif
+        </section>
+    @endif
 @endsection
 
 @section('customJs')
     <script>
         randomBackground();
-        document.getElementById('priceRange').addEventListener('mousemove', function () {
-            document.getElementById('priceRangeLbl').innerHTML = document.getElementById('priceRange').value + ' €';
+        document.getElementById('prizeRangeTo').addEventListener('mousemove', function () {
+            document.getElementById('prizeRangeToLbl').innerHTML = document.getElementById('prizeRangeTo').value + ' €';
+        });
+        document.getElementById('prizeRangeFrom').addEventListener('mousemove', function () {
+            console.log('kkt');
+            document.getElementById('prizeRangeFromLbl').innerHTML = document.getElementById('prizeRangeFrom').value + ' €';
         });
     </script>
 @endsection

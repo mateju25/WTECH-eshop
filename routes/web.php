@@ -26,7 +26,7 @@ Route::resource('/shoppingCartDelivery', 'App\Http\Controllers\ShoppingCartDeliv
 
 Route::resource('/shoppingCartPayment', 'App\Http\Controllers\ShoppingCartPaymentController');
 
-Route::resource('/products', 'App\Http\Controllers\ProductController');
+Route::resource('/products', 'App\Http\Controllers\ProductController')->middleware('deleteFilters');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

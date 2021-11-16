@@ -15,44 +15,9 @@
                     <div class="col-12 mb-1">
                         <div class="lightbox">
                             <img
-                                src="{{ asset('images/mainPage/bestOfWeek.png') }}"
+                                src="{{ asset($product->image.'.jpg') }}"
                                 alt="Gallery image 1"
                                 class="active"
-                            />
-                        </div>
-                    </div>
-                    <div id="galleryRow">
-                        <div class="col-3 mt-1">
-                            <img
-                                src="{{ asset('images/mainPage/bestOfWeek.png') }}"
-                                data-mdb-img="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
-                                alt="Gallery image 1"
-                                class="active w-100"
-                            />
-                        </div>
-                        <div class="col-3 mt-1">
-                            <img
-                                src="{{ asset('images/mainPage/set.jpg') }}"
-                                data-mdb-img="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                                alt="Gallery image 2"
-                                class="w-100"
-                            />
-                        </div>
-                        <div class="col-3 mt-1">
-                            <img
-                                src="{{ asset('images/mainPage/lezecky.jpg') }}"
-                                data-mdb-img="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
-                                alt="Gallery image 3"
-                                class="w-100"
-                            />
-                        </div>
-                        <div class="col-3 mt-1">
-                            <img
-
-                                src="{{ asset('images/mainPage/sedak.jpg') }}"
-                                data-mdb-img="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                                alt="Gallery image 4"
-                                class="w-100"
                             />
                         </div>
                     </div>
@@ -67,65 +32,42 @@
                     <div class="reviewPart">
                         <p>Recenzie</p>
                         <div class="ratingReview">
-                            <img src="{{ asset('images/productDetail/star.png') }}" alt="Recenzie" width="80" height="80">
                             <h3 class="getHigher">{{$product->rating}}</h3>
                         </div>
 
 
                     </div>
                     <h2>{{$product->prize}}</h2>
-                    <a href="shoppingCard.html" class="buttonBlack">Pridať do košíka</a>
+                    <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
+                        @method('put')
+                        @csrf
+                        <input id="hidden" name="quantity" style="display: none" type="number" value="1"/>
+                        <input type="submit" class="buttonBlack" value="Pridať do košíka"/>
+                    </form>
                 </div>
             </div>
         </section>
         <section class="recommendations">
             <h1>Podobné produkty</h1>
             <div class="slider">
-                <div>
-                    <div class="sliderElement">
-                        <div class="sliderInnerElement">
-                            <img class="bestOfWeek" src="{{ asset('images/mainPage/bestOfWeek.png') }}" alt="Hit týždňa">
-                            <p>Lezecky</p>
-                            <p>50 €</p>
+                @foreach($similarProducts as $product)
+                    <div>
+                        <div class="sliderElement">
+                            <div class="sliderInnerElement">
+                                <a href="productDetail.html?query=idProduktu">
+                                    <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
+                                 {{ asset($product->image.'_300.jpg') }} 800w"
+                                         sizes="(max-width: 600px) 480px, 800px"
+                                         src="{{ asset($product->image.'.jpg') }}"
+                                         alt="Odporucame"
+                                         width="200" height="200">
+                                </a>
+                                <p>{{$product->name}}</p>
+                                <p>{{$product->prize}} €</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="sliderElement">
-                        <div class="sliderInnerElement">
-                            <img class="bestOfWeek" src="{{ asset('images/mainPage/lezecky.jpg') }}" alt="Hit týždňa">
-                            <p>Lezecky</p>
-                            <p>50 €</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="sliderElement">
-                        <div class="sliderInnerElement">
-                            <img class="bestOfWeek" src="{{ asset('images/mainPage/set.jpg') }}" alt="Hit týždňa">
-                            <p>Lezecky</p>
-                            <p>50 €</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="sliderElement">
-                        <div class="sliderInnerElement">
-                            <img class="bestOfWeek" src="{{ asset('images/mainPage/sedak.jpg') }}" alt="Hit týždňa">
-                            <p>Lezecky</p>
-                            <p>50 €</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="sliderElement">
-                        <div class="sliderInnerElement">
-                            <img class="bestOfWeek" src="{{ asset('images/mainPage/lano.jpg') }}" alt="Hit týždňa">
-                            <p>Lezecky</p>
-                            <p>50 €</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             </br>
         </section>
