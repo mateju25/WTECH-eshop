@@ -54,7 +54,11 @@ table th {
     border: 1px solid #45A29E;
 }
 
-#closeBtn {
+body {
+    background: #0B0C10 !important;
+}
+
+.closeBtn {
     width: 24px;
     float: right;
 }

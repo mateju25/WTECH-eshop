@@ -72,9 +72,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -85,7 +85,32 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //         if (!Auth::user() or Auth::user()->admin == false)
+//         return redirect('/');
+
+        $fileName = str_replace(" ", '', $request['name']);
+        $category = Category::where('id', $request['category'] )->first();
+        $request->image->move(public_path('images/'.$category->name), $fileName.'.jpg');
+        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'.jpg');
+        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'_200.jpg');
+        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'_300.jpg');
+
+        $product = new Product();
+        $product->name = $request['name'];
+        $product->shortDescription = $request['shortDesc'];
+        $product->longDescription = $request['longDesc'];
+        $product->business_type_id = BusinessType::where('id', $request['businessType'] )->first()->id;
+        $product->category_id = Category::where('id', $request['category'] )->first()->id;
+        $product->prize = $request['prize'];
+        $product->discountedPrize = $request['discount'];
+        $product->rating = $request['rating'];
+        $product->soldedCount = $request['solds'];
+        $product->top = $request['top'] == "on" ? true : false;
+        $product->bestOfWeek = $request['bestOfWeek'] == "on" ? true : false;
+        $product->image = '/images/products/'.$fileName;
+        $product->save();
+
+        return redirect('admin');
     }
 
     /**
@@ -108,7 +133,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
     }
 
     /**
@@ -120,7 +145,34 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //         if (!Auth::user() or Auth::user()->admin == false)
+//         return redirect('/');
+
+        if($request->image) {
+            $fileName = str_replace(" ", '', $request['name']);
+            $category = Category::where('id', $request['category'])->first();
+            $request->image->move(public_path('images/' . $category->name), $fileName . '.jpg');
+            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '.jpg');
+            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '_200.jpg');
+            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '_300.jpg');
+        }
+
+        $product->name = $request['name'];
+        $product->shortDescription = $request['shortDesc'];
+        $product->longDescription = $request['longDesc'];
+        $product->business_type_id = BusinessType::where('id', $request['businessType'] )->first()->id;
+        $product->category_id = Category::where('id', $request['category'] )->first()->id;
+        $product->prize = $request['prize'];
+        $product->discountedPrize = $request['discount'];
+        $product->rating = $request['rating'];
+        $product->soldedCount = $request['solds'];
+        $product->top = $request['top'] == "on" ? true : false;
+        $product->bestOfWeek = $request['bestOfWeek'] == "on" ? true : false;
+        if($request->image)
+            $product->image = '/images/products/'.$fileName;
+        $product->save();
+
+        return redirect('admin');
     }
 
     /**
@@ -131,6 +183,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        //         if (!Auth::user() or Auth::user()->admin == false)
+//         return redirect('/');
+        $product->delete();
+        return redirect('admin');
     }
 }

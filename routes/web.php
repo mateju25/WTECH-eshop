@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,6 @@ Route::resource('/shoppingCartPayment', 'App\Http\Controllers\ShoppingCartPaymen
 
 Route::resource('/products', 'App\Http\Controllers\ProductController')->middleware('deleteFilters');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 
 require __DIR__.'/auth.php';
