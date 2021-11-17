@@ -37,7 +37,11 @@
 
                         @auth
                             <li class="nav-item">
-                                <p class="loggedUser">Prihlásený: {{ Auth::user()->customerInfo->name }}</p>
+                                @if(Auth::user()->customerInfo->email == "admin@admin.com")
+                                    <a class="loggedUser" href="/admin">Prihlásený: {{ Auth::user()->customerInfo->name }}</a>
+                                @else
+                                    <p class="loggedUser">Prihlásený: {{ Auth::user()->customerInfo->name }}</p>
+                                @endif
                             </li>
 
                             <li class="nav-item login">

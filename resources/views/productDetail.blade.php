@@ -39,17 +39,17 @@
                     </div>
                     @if($product->discountedPrize)
                         <div>
-                            <h2 class="price">{{$product->discountedPrize}}</h2>
+                            <h2 class="prize">{{$product->discountedPrize}}</h2>
                             <h2 class="crossedPrice">{{$product->prize}}</h2>
                         </div>
                     @else
-                        <h2 class="price">{{$product->prize}} €</h2>
+                        <h2 class="prize">{{$product->prize}} €</h2>
                     @endif
                     <form action="{{ route('shoppingCart.update',$product->id) }}" method="post">
                         @method('put')
                         @csrf
                         <label for="amount">Počet kusov:</label>
-                        <input id="amount" name="quantity" type="number" min="1"
+                        <input id="amount" name="quantity" class="quantityInput" type="number" min="1"
                                value="1"/>
                         <input type="submit" class="buttonWhite" value="Pridať do košíka"/>
                     </form>

@@ -78,7 +78,7 @@
                 <fieldset class="functionalPart">
                     <input class="buttonWhite floatButton" type="submit" value="Pokračovať"/>
 
-                    <a class="buttonWhite floatButton" href="/shoppingCart">Späť</a>
+                    <a class="buttonWhite floatButtonLeft" href="/shoppingCart">Späť</a>
                 </fieldset>
             </form>
         </section>

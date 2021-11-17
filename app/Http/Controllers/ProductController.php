@@ -6,8 +6,10 @@ use App\Models\BusinessType;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
 {
@@ -77,6 +79,25 @@ class ProductController extends Controller
 
     }
 
+    private function duplicateAndSaveImage($request) {
+        $fileName = str_replace(" ", '', $request['name']);
+        $category = Category::where('id', $request['category'])->first();
+        $request->image->move(public_path('images/' . $category->name), $fileName . '.jpg');
+
+        $basePath = public_path('images/' . $category->name) . '/' . $fileName . '.jpg';
+        copy($basePath, $basePath);
+        $image_resize = Image::make($basePath);
+        $image_resize->resize(600, 600);
+        $image_resize->save(public_path('images/products') . '/' . $fileName . '.jpg');
+        $image_resize = Image::make($basePath);
+        $image_resize->resize(300, 300);
+        $image_resize->save(public_path('images/products') . '/' . $fileName . '_300.jpg');
+        $image_resize = Image::make($basePath);
+        $image_resize->resize(200, 200);
+        $image_resize->save(public_path('images/products') . '/' . $fileName . '_200.jpg');
+        return $fileName;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -85,15 +106,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //         if (!Auth::user() or Auth::user()->admin == false)
-//         return redirect('/');
+        if (!Auth::user() or Auth::user()->admin == false)
+            return redirect('/');
 
-        $fileName = str_replace(" ", '', $request['name']);
-        $category = Category::where('id', $request['category'] )->first();
-        $request->image->move(public_path('images/'.$category->name), $fileName.'.jpg');
-        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'.jpg');
-        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'_200.jpg');
-        copy(public_path('images/'.$category->name).'/'.$fileName.'.jpg', public_path('images/products').'/'.$fileName.'_300.jpg');
+        $fileName = $this->duplicateAndSaveImage($request);
 
         $product = new Product();
         $product->name = $request['name'];
@@ -145,16 +161,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //         if (!Auth::user() or Auth::user()->admin == false)
-//         return redirect('/');
+        if (!Auth::user() or Auth::user()->admin == false)
+            return redirect('/');
 
         if($request->image) {
-            $fileName = str_replace(" ", '', $request['name']);
-            $category = Category::where('id', $request['category'])->first();
-            $request->image->move(public_path('images/' . $category->name), $fileName . '.jpg');
-            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '.jpg');
-            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '_200.jpg');
-            copy(public_path('images/' . $category->name) . '/' . $fileName . '.jpg', public_path('images/products') . '/' . $fileName . '_300.jpg');
+            $fileName = $this->duplicateAndSaveImage($request);
+            $product->image = '/images/products/'.$fileName;
         }
 
         $product->name = $request['name'];
@@ -168,8 +180,6 @@ class ProductController extends Controller
         $product->soldedCount = $request['solds'];
         $product->top = $request['top'] == "on" ? true : false;
         $product->bestOfWeek = $request['bestOfWeek'] == "on" ? true : false;
-        if($request->image)
-            $product->image = '/images/products/'.$fileName;
         $product->save();
 
         return redirect('admin');
@@ -183,8 +193,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //         if (!Auth::user() or Auth::user()->admin == false)
-//         return redirect('/');
+        if (!Auth::user() or Auth::user()->admin == false)
+            return redirect('/');
         $product->delete();
         return redirect('admin');
     }

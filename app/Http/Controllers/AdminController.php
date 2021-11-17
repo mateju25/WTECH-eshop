@@ -12,8 +12,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-//        if (!Auth::user() or Auth::user()->admin == false)
-//            return redirect('/');
+        if (!Auth::user() or Auth::user()->admin == false)
+            return redirect('/');
 
         $products = Product::all();
         return view('admin')

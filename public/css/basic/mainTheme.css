@@ -118,6 +118,7 @@ header a:hover {
     justify-content: flex-end;
     margin-right: 30px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .searchTerm {
     width: 25%;
@@ -324,4 +325,15 @@ footer .bottomLogoSection{
     margin-left: 10px;
     color: red;
 }
+
+.quantityInput {
+    width: 70px;
+}
+
+.collapsed {
+    width: 85px;
+    height: 70px;
+    margin: 20px;
+}
+
 

@@ -12,7 +12,7 @@
         <form class="registrationForm"  method="POST" action="{{ route('register') }}">
             @csrf
 
-                <label for="name">Meno a priezvisko: </label>
+                <label style="margin-top: 20px;" for="name">Meno a priezvisko: </label>
                 <x-input id="name" type="text" name="name" :value="old('name')" required autofocus /><br/>
 
                 <label for="street">Ulica: </label>

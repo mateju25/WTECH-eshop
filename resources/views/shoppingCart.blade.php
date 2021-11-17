@@ -27,27 +27,27 @@
                 </div>
                 <div class="rightPart">
                     <div class="functionalPart">
-                        <label for="amount-selector">
-                            <form action="{{ route('shoppingCart.update',$productGroup->product->id) }}" method="post">
-                                @method('put')
-                                @csrf
-                                <label class="moveDown" for="amount">Počet kusov:</label>
-                                <input class="moveDown" id="amount" name="quantity" type="number" min="1"
-                                       value="{{(int) $productGroup->quantity}}"/>
-                                <input type="submit" class="sizeDown buttonBlack" value="OK"/>
-                            </form>
-                        </label>
+                        <form action="{{ route('shoppingCart.update',$productGroup->product->id) }}" method="post">
+                            @method('put')
+                            @csrf
+                            <label class="moveDown textForAmount" for="amount">Počet kusov:</label>
+                            {{--                            <div>--}}
+                            <input class="moveDown quantityInput" id="amount" name="quantity" type="number" min="1"
+                                   value="{{(int) $productGroup->quantity}}"/>
+                            <input type="submit" class="sizeDown buttonBlack smallButton" value="OK"/>
+                            {{--                            </div>--}}
+                        </form>
                         <h2>{{$productGroup->sum()}} €</h2>
                     </div>
 
                 </div>
 
-                    <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}"
-                          method="post">
-                        @method('delete')
-                        @csrf
-                        <input type="submit" class="sameMargin buttonBlack" value="X"/>
-                    </form>
+                <form class="closePart" action="{{ route('shoppingCart.destroy',$productGroup->product->id) }}"
+                      method="post">
+                    @method('delete')
+                    @csrf
+                    <input type="submit" class="sameMargin buttonBlack xButton" value="X"/>
+                </form>
 
 
             </section>
@@ -55,8 +55,10 @@
 
         <section class="summaryInfo">
             <a class="buttonWhite" href="{{ $previousPage }}">Späť</a>
-            <p>Spolu: {{$order->totalSum()}} €</p>
-            <a class="buttonWhite" href="/shoppingCartDelivery">Pokračovať</a>
+            <div style="display: flex">
+                <p>Spolu: {{$order->totalSum()}} €</p>
+                <a class="buttonWhite" href="/shoppingCartDelivery">Pokračovať</a>
+            </div>
         </section>
     @endif
 @endsection

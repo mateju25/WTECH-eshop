@@ -42,11 +42,7 @@
 .leftPart h1 {
     font-size: 40px;
     margin: 10px;
-}
-
-.leftPart h1 {
-    font-size: 40px;
-    margin: 10px;
+    margin-bottom: 30px;
 }
 
 .menuButton{
@@ -93,12 +89,13 @@
     padding-top: 20px;
 }
 
-.pricePart {
-    margin-left: 20px;
-}
 
 .pricePart h2{
     margin-top: 15px;
+}
+
+.crossedPrice {
+    margin-left: 25px;
 }
 
 /*#endregion Best Of Week*/

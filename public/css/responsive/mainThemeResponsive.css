@@ -32,9 +32,6 @@
 
     .row button {
         transform: scale(1.0);
-
-        height: 100%;
-
     }
     .searchTerm {
         width: 50%;
@@ -85,15 +82,17 @@
     header img {
         width: 300px;
     }
-    .row button {
-
-        height: 100%;
-
+    .collapsed {
+        width: 68px;
+        height: 58px;
+        margin: 8px;
     }
 }
 
 @media (max-width: 576px) {
-
+    .halfSearch {
+        margin-right: 0px;
+    }
     .container-fluid {
         flex-direction: column;
     }
@@ -115,10 +114,6 @@
     }
     .twoRows {
         align-items: center;
-    }
-
-    header img {
-        width: 200px;
     }
     .slick-arrow {
         display: none !important;

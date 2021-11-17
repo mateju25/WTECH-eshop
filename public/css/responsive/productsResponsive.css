@@ -23,6 +23,12 @@
         width: 200px;
         height: 200px;
     }
+    .formFiltering .grid {
+        margin: 5px 0px 5px 0px;
+    }
+    .gridItem h1 {
+         height: 115px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -43,6 +49,10 @@
     .submitPart {
         margin-left: 30%;
         display: flex;
+    }
+    .gridItem img {
+        width: 250px;
+        height: 250px;
     }
 }
 

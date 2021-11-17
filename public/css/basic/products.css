@@ -29,8 +29,9 @@
     margin-right: 20px;
 }
 
-.uvidime{
+.prizes{
     display: flex;
+    margin: 10px 0px 10px 0px;
 }
 
 .submitPart div {
@@ -123,7 +124,7 @@ a:hover {
     font-size: 2rem;
     text-align: center;
     margin-top: 25px;
-    height: 85px;
+    height: 115px;
 }
 
 .gridItem img {
@@ -132,7 +133,7 @@ a:hover {
 }
 
 .gridItem {
-    width: 100%;
+    width: 90%;
 }
 
 .grid {
@@ -155,7 +156,7 @@ a:hover {
     margin: 0;
 }
 
-.price {
+.prize {
     font-size: 30px;
 }
 
