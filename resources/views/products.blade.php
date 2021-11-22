@@ -163,7 +163,7 @@
     @if(count($productsList) != 0)
         <section class="padding">
             @if ($productsList->hasPages())
-                {{ $productsList->links() }}
+                {{ $productsList->appends(request()->query())->links() }}
             @else
                 <p>Všetky výsledky zobrazené</p>
             @endif

@@ -65,7 +65,7 @@ class ProductController extends Controller
         $products = $products->where('deleted', '=', false);
 
         return view('products')
-            ->with('productsList', $products->paginate(6))
+            ->with('productsList', $products->paginate(6)->appends(request()->query()))
             ->with('businessTypeList',  BusinessType::all())
             ->with('categoryList', Category::all())
             ->with('request', $request);
