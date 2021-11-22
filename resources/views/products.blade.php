@@ -64,8 +64,8 @@
     <section class="filtering">
         <form method="get" action="{{ route('products.index')}}" class="formFiltering row align-items-center">
             <fieldset class="grid col-lg-3 col-sm-6">
+                <legend>Cena od</legend>
                 <div>
-                    <legend>Cena od</legend>
                     <label for="prizeRangeFrom"
                            id="prizeRangeFromLbl">@if($request->prizeRangeFrom){{$request->prizeRangeFrom}} @else
                             0  @endif €</label>
@@ -74,8 +74,8 @@
                            value="@if($request->prizeRangeFrom){{$request->prizeRangeFrom}}@else{{0}}@endif">
                 </div>
 
+                <legend>Cena do</legend>
                 <div>
-                    <legend>Cena do</legend>
                     <label for="prizeRangeTo"
                            id="prizeRangeToLbl">@if($request->prizeRangeTo){{$request->prizeRangeTo}} @else
                             400  @endif €</label>

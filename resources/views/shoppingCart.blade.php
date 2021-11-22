@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    @if(count($order->productGroups) == 0)
+    @if($order == null)
         <section class="itemTypes">
             <p class="middle">V košíku sa nič nenachádza</p>
         </section>
@@ -17,7 +17,7 @@
                 <div class="leftPart">
                     <div class="imagePart">
                         <a href="/products/{{$productGroup->product->id}}">
-                            <img src="{{ asset('images/products/climbingShoes/lezecka1.jpg') }}" alt="Lezecka">
+                            <img src="{{ asset($productGroup->product->image . ".jpg") }}" alt="Obrazok produktu">
                         </a>
                     </div>
                     <div class="textPart">

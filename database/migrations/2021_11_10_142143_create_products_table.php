@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->boolean('top');
             $table->boolean('bestOfWeek');
             $table->string('image');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('business_type_id')->references('id')->on('business_types');

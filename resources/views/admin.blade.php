@@ -7,7 +7,7 @@
 @section('content')
     <section class="allProducts">
         <button id="newProduct" class="productsBtn">Nový produkt</button>
-        <a href="/" class="productsBtn">Hlavná stránka</a>
+        <button  class="productsBtn"><a style="color: #0B0C10;" href="/">Hlavná stránka</a></button>
         <table class="product">
             <thead>
             <tr>
@@ -101,10 +101,10 @@
                 <label for="bestOfWeekDlg">Je hit tyždňa? : </label>
                 <input type="checkbox"  id="bestOfWeekDlg" name="bestOfWeek">
 
-                <input type="file" id="imageUpload" name="image" accept=".jpg" class="form-control">
+                <input type="file" id="imageUpload" class="fileUpload" name="image" accept=".jpg" class="form-control">
             </fieldset>
         </form>
-        <input type="submit" class="editBtn" form="formEditDlg" value="Odošli">
+        <input type="submit" class="editBtn productsBtn" form="formEditDlg" value="Odošli">
     </dialog>
 
     <dialog id="newDlg">
@@ -155,10 +155,10 @@
                 <label for="bestOfWeekDlg">Je hit tyždňa? : </label>
                 <input type="checkbox" id="bestOfWeekDlg" name="bestOfWeek">
 
-                <input type="file" id="imageUpload" name="image" accept=".jpg" class="form-control" required>
+                <input type="file"  id="imageUpload" name="image" accept=".jpg" class="form-control fileUpload" required>
             </fieldset>
         </form>
-        <input type="submit" class="editBtn" form="formNewDlg" value="Odošli">
+        <input type="submit" class="editBtn productsBtn" form="formNewDlg" value="Odošli">
     </dialog>
 @endsection
 

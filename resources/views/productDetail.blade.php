@@ -30,17 +30,12 @@
                 </div>
                 <div class="functionalPart">
                     <div class="reviewPart">
-                        <p>Recenzie</p>
-                        <div class="ratingReview">
-                            <h3 class="getHigher">{{$product->rating}}</h3>
-                        </div>
-
-
+                        <h3 class="getHigher">Rating:  {{$product->rating}}</h3>
                     </div>
                     @if($product->discountedPrize)
-                        <div>
-                            <h2 class="prize">{{$product->discountedPrize}}</h2>
-                            <h2 class="crossedPrice">{{$product->prize}}</h2>
+                        <div class="prizes">
+                            <h2 class="prize">{{$product->discountedPrize}}  €</h2>
+                            <h2 class="crossedPrice">{{$product->prize}}  €</h2>
                         </div>
                     @else
                         <h2 class="prize">{{$product->prize}} €</h2>

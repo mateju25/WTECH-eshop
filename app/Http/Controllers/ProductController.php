@@ -62,6 +62,8 @@ class ProductController extends Controller
         if  ($request['rating'])
             $products = $products->orderBy('rating', $request['rating']);
 
+        $products = $products->where('deleted', '=', false);
+
         return view('products')
             ->with('productsList', $products->paginate(6))
             ->with('businessTypeList',  BusinessType::all())
@@ -137,7 +139,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $similar = Product::where([['category_id', $product->category->id],['id', '!=', $product->id]])->get();
+        if ($product->deleted == true)
+            return redirect('/');
+        $similar = Product::where([['category_id', $product->category->id],['id', '!=', $product->id],['deleted', '=', false]])->get();
         return view('productDetail')->with('product', $product)->with('similarProducts',$similar);
     }
 
@@ -195,7 +199,8 @@ class ProductController extends Controller
     {
         if (!Auth::user() or Auth::user()->admin == false)
             return redirect('/');
-        $product->delete();
+        $product->deleted = true;
+        $product->save();
         return redirect('admin');
     }
 }

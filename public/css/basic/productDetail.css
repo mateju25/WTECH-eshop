@@ -28,8 +28,8 @@
 .reviewPart {
     margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 40%;
+    justify-content: space-around;
 }
 
 .reviewPart p{
@@ -72,11 +72,19 @@
 
 .ratingReview{
     display: flex;
+    width: 35%;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
+}
+
+.prizes {
+    margin-top: 20px;
+    display: flex;
+    width: 55%;
+    justify-content: space-around;
 }
 
 .getHigher{
-    margin-top: 15px;
+    margin-top: 5px;
     color: #66FCF1;
 }

@@ -15,7 +15,7 @@ class AdminController extends Controller
         if (!Auth::user() or Auth::user()->admin == false)
             return redirect('/');
 
-        $products = Product::all();
+        $products = Product::where('deleted', '=', false)->get();
         return view('admin')
             ->with('products', $products)
             ->with('businessTypes', BusinessType::all())

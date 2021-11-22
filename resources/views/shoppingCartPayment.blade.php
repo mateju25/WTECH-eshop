@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    @if(count($order->productGroups) == 0)
+    @if($order == null)
         <section class="itemTypes">
             <p>V košíku sa nič nenachádza</p>
         </section>

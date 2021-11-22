@@ -57,6 +57,12 @@ a:hover {
     justify-content: space-evenly;
 }
 
+.lastPart {
+    align-items: center;
+    justify-content: center;
+    border-right: 0px !important;
+}
+
 .filterPrice {
     display: flex;
     flex-direction: column;
@@ -137,7 +143,13 @@ a:hover {
 }
 
 .grid {
+    justify-content: center;
     margin: 20px 0px 20px 0px;
+}
+
+fieldset.grid {
+    border-right: #FFFFFF 1px solid;
+    height: 280px;
 }
 
 .grid legend {
@@ -148,9 +160,6 @@ a:hover {
     text-align: center;
 }
 
-.lastPart {
-    align-items: center;
-}
 
 .buttonBlack {
     margin: 0;

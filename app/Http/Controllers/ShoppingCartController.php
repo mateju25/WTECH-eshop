@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 class ShoppingCartController extends Controller
 {
 
-    public static function makeOrder()
+    public static function getOrder()
     {
         $order = null;
         if (Session::get('orderId')) {
@@ -20,12 +20,18 @@ class ShoppingCartController extends Controller
             $order = Order::where([['id', $orderId], ['state', 'creating']])->first();
         }
 
-        if ($order == null) {
-            if (Auth::user()) {
-                $user = Auth::user();
-                $order = Order::where([['user_id', $user->id], ['state', 'creating']])->first();
-            }
+
+        if (Auth::user()) {
+            $user = Auth::user();
+            $order = Order::where([['user_id', $user->id], ['state', 'creating']])->first();
         }
+
+        return $order;
+    }
+
+    public static function makeOrder()
+    {
+        $order = self::getOrder();
 
         if ($order == null) {
             $order = Order::create([
@@ -49,7 +55,7 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        $order = self::makeOrder();
+        $order = self::getOrder();
         return view('shoppingCart', ['previousPage' => str_replace(url('/'), '', url()->previous())])->with('order', $order);
     }
 
