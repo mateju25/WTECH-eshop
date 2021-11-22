@@ -164,22 +164,6 @@
 
 @section('customJs')
     <script>
-        $(document).ready(function () {
-            let submit_buttons = $(".remove");
-            submit_buttons.on('click', function (e) {
-                e.preventDefault();
-
-                let button = $(this);
-                let form = button.closest('form');
-                let msg = form.data('confirm');
-
-                if(confirm(msg)) form.submit();
-
-            });
-
-        });
-    </script>
-    <script>
         let btns = document.getElementsByClassName('edit');
         let products = {!! json_encode($products->toArray(), JSON_HEX_TAG) !!};
         let dict  = {};
