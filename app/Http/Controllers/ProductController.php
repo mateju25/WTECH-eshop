@@ -8,7 +8,9 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
@@ -16,7 +18,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(Request $request)
     {
@@ -68,36 +70,28 @@ class ProductController extends Controller
             ->with('productsList', $products->paginate(6)->appends(request()->query()))
             ->with('businessTypeList',  BusinessType::all())
             ->with('categoryList', Category::all())
-            ->with('request', $request);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-
+            ->with('request', $request)
+            ->with('imagePath', Config::get('app.productImage'));
     }
 
     private function duplicateAndSaveImage($request) {
-        $fileName = str_replace(" ", '', $request['name']);
+        $fileName =  str_replace(" ", '', $request['name']) . date('Y_m_d_H_i_s');
+//        $fileName = Hash::make($request['name']);
         $category = Category::where('id', $request['category'])->first();
-        $request->image->move(public_path('images/' . $category->name), $fileName . '.jpg');
+        $request->image->move(public_path(Config::get('app.productImage') . $category->name), $fileName . '.jpg');
 
-        $basePath = public_path('images/' . $category->name) . '/' . $fileName . '.jpg';
+        $basePath = public_path(Config::get('app.productImage') . $category->name) . '/' . $fileName . '.jpg';
         copy($basePath, $basePath);
         $image_resize = Image::make($basePath);
         $image_resize->resize(600, 600);
-        $image_resize->save(public_path('images/products') . '/' . $fileName . '.jpg');
+        $image_resize->save(public_path(Config::get('app.productImage')) . $category->name . '/' . $fileName . '.jpg');
         $image_resize = Image::make($basePath);
         $image_resize->resize(300, 300);
-        $image_resize->save(public_path('images/products') . '/' . $fileName . '_300.jpg');
+        $image_resize->save(public_path(Config::get('app.productImage')) . $category->name . '/' . $fileName . '_300.jpg');
         $image_resize = Image::make($basePath);
         $image_resize->resize(200, 200);
-        $image_resize->save(public_path('images/products') . '/' . $fileName . '_200.jpg');
-        return $fileName;
+        $image_resize->save(public_path(Config::get('app.productImage')) . $category->name . '/' . $fileName . '_200.jpg');
+        return $category->name . '/' . $fileName;
     }
 
     /**
@@ -125,7 +119,7 @@ class ProductController extends Controller
         $product->soldedCount = $request['solds'];
         $product->top = $request['top'] == "on" ? true : false;
         $product->bestOfWeek = $request['bestOfWeek'] == "on" ? true : false;
-        $product->image = '/images/products/'.$fileName;
+        $product->image = $fileName;
         $product->save();
 
         return redirect('admin');
@@ -142,18 +136,7 @@ class ProductController extends Controller
         if ($product->deleted == true)
             return redirect('/');
         $similar = Product::where([['category_id', $product->category->id],['id', '!=', $product->id],['deleted', '=', false]])->get();
-        return view('productDetail')->with('product', $product)->with('similarProducts',$similar);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-
+        return view('productDetail')->with('product', $product)->with('similarProducts',$similar)->with('imagePath', Config::get('app.productImage'));
     }
 
     /**
@@ -170,7 +153,7 @@ class ProductController extends Controller
 
         if($request->image) {
             $fileName = $this->duplicateAndSaveImage($request);
-            $product->image = '/images/products/'.$fileName;
+            $product->image = $fileName;
         }
 
         $product->name = $request['name'];

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 class HomePageController extends Controller
 {
@@ -16,6 +17,6 @@ class HomePageController extends Controller
         else
             $bestOfWeek = null;
         $recommendProducts = Product::where('top','=',true)->get();
-        return view('homePage', compact('bestOfWeek', 'recommendProducts'));
+        return view('homePage', compact('bestOfWeek', 'recommendProducts'))->with('imagePath', Config::get('app.productImage'));
     }
 }

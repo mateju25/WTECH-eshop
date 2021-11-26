@@ -17,7 +17,7 @@
                 <div class="leftPart">
                     <div class="imagePart">
                         <a href="/products/{{$productGroup->product->id}}">
-                            <img src="{{ asset($productGroup->product->image . ".jpg") }}" alt="Obrazok produktu">
+                            <img src="{{ asset($imagePath . $productGroup->product->image . ".jpg") }}" alt="Obrazok produktu">
                         </a>
                     </div>
                     <div class="textPart">

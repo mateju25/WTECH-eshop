@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Admin;
 use App\Http\Middleware\AdminLogged;
 use App\Http\Middleware\DeleteFilters;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;

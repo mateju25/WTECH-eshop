@@ -10,7 +10,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you may specify which of the database connections below you wish
-    | to use as your default connection for all database work. Of course
+    | to use as your default connection for all database work. Of Kurz
     | you may use many connections at once using the Database library.
     |
     */
@@ -18,7 +18,7 @@ return [
     'default' => env('DB_CONNECTION', 'pgsql'),
     'database' => env('DB_DATABASE', 'wtech-eshop'),
     'username' => env('DB_USERNAME', 'postgres'),
-    'password' => env('DB_PASSWORD', '*******'),
+    'password' => env('DB_PASSWORD', 'Korespondent2000'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here are each of the database connections setup for your application.
-    | Of course, examples of configuring each database platform that is
+    | Of Kurz, examples of configuring each database platform that is
     | supported by Laravel is shown below to make development simple.
     |
     |

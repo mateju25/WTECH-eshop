@@ -125,10 +125,10 @@
                         <div class="gridItem">
                             <h1>{{$product->name}}</h1>
                             <a href="/products/{{$product->id}}">
-                                <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
-                             {{ asset($product->image.'_300.jpg') }} 800w"
+                                <img srcset="{{ asset($imagePath . $product->image.'_200.jpg') }} 480w,
+                             {{ asset($imagePath . $product->image.'_300.jpg') }} 800w"
                                      sizes="(max-width: 600px) 480px, 800px"
-                                     src="{{ asset($product->image.'.jpg') }}"
+                                     src="{{ asset($imagePath . $product->image.'.jpg') }}"
                                      alt="{{$product->name}}"
                                      width="280">
                             </a>

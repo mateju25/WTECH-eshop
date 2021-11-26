@@ -39,7 +39,7 @@
                     <th>{{$product->rating}}</th>
                     <th>@if($product->top == 1) Áno @else Nie @endif</th>
                     <th>@if($product->bestOfWeek == 1) Áno @else Nie @endif</th>
-                    <th><img src="{{ asset($product->image.'.jpg') }}" alt="Obrazok produktu" width="180" height="180"></th>
+                    <th><img src="{{ asset($imagePath . $product->image.'.jpg') }}" alt="Obrazok produktu" width="180" height="180"></th>
                     <th>
                         <button class="edit productsBtn" value="{{$product->id}}">Uprav</button>
                         <form class="closePart" action="{{ route('products.destroy',$product->id) }}"
@@ -101,6 +101,9 @@
                 <label for="bestOfWeekDlg">Je hit tyždňa? : </label>
                 <input type="checkbox"  id="bestOfWeekDlg" name="bestOfWeek">
 
+                <br/>
+                <img src="" id="imgDlg" alt="Obrazok produktu" width="180" height="180">
+
                 <input type="file" id="imageUpload" class="fileUpload" name="image" accept=".jpg" class="form-control">
             </fieldset>
         </form>
@@ -112,7 +115,7 @@
         <form id="formNewDlg" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
             @method('post')
             @csrf
-            <h2>Editácia produktu</h2>
+            <h2>Nový produkt</h2>
             <fieldset>
                 <label for="nameDlg">Meno produktu : </label>
                 <input type="text" placeholder="Meno produktu " id="nameDlg" name="name" required>
@@ -188,7 +191,7 @@
                     document.getElementById('bestOfWeekDlg').checked = dict[productId].bestOfWeek;
                     document.getElementById('formEditDlg').action = "/products/"+productId;
                     console.log(window.location.origin + dict[productId].image + '.jpg');
-                    document.getElementById('imgDlg').src = window.location.origin + dict[productId].image + '.jpg';
+                    document.getElementById('imgDlg').src = window.location.origin + "/images/products/" + dict[productId].image + '.jpg';
                     document.getElementById('imgSrcDlg').value = dict[productId].image;
                 });
             }

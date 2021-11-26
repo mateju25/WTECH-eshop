@@ -6946,7 +6946,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /** Used to lookup unminified function names. */
     var realNames = {};
 
-    /** Used to detect maps, sets, and weakmaps. */
+    /** Used to detect maps, Set, and weakmaps. */
     var dataViewCtorString = toSource(DataView),
         mapCtorString = toSource(Map),
         promiseCtorString = toSource(Promise),
@@ -11497,7 +11497,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      */
     var getTag = baseGetTag;
 
-    // Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
+    // Fallback for data views, maps, Set, and weak maps in IE 11 and promises in Node.js < 6.
     if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
         (Map && getTag(new Map) != mapTag) ||
         (Promise && getTag(Promise.resolve()) != promiseTag) ||
@@ -12155,7 +12155,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * A specialized version of `_.shuffle` which mutates and sets the size of `array`.
+     * A specialized version of `_.shuffle` which mutates and Set the size of `array`.
      *
      * @private
      * @param {Array} array The array to shuffle.
@@ -13009,9 +13009,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
-     * var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+     * var Ostatne = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
      *
-     * _.intersectionWith(objects, others, _.isEqual);
+     * _.intersectionWith(objects, Ostatne, _.isEqual);
      * // => [{ 'x': 1, 'y': 2 }]
      */
     var intersectionWith = baseRest(function(arrays) {
@@ -13812,9 +13812,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
-     * var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+     * var Ostatne = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
      *
-     * _.unionWith(objects, others, _.isEqual);
+     * _.unionWith(objects, Ostatne, _.isEqual);
      * // => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
      */
     var unionWith = baseRest(function(arrays) {
@@ -14061,9 +14061,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }];
-     * var others = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
+     * var Ostatne = [{ 'x': 1, 'y': 1 }, { 'x': 1, 'y': 2 }];
      *
-     * _.xorWith(objects, others, _.isEqual);
+     * _.xorWith(objects, Ostatne, _.isEqual);
      * // => [{ 'x': 2, 'y': 1 }, { 'x': 1, 'y': 1 }]
      */
     var xorWith = baseRest(function(arrays) {
@@ -16464,7 +16464,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * **Note:** This method is loosely based on the
      * [structured clone algorithm](https://mdn.io/Structured_clone_algorithm)
      * and supports cloning arrays, array buffers, booleans, date objects, maps,
-     * numbers, `Object` objects, regexes, sets, strings, symbols, and typed
+     * numbers, `Object` objects, regexes, Set, strings, symbols, and typed
      * arrays. The own enumerable properties of `arguments` objects are cloned
      * as plain objects. An empty object is returned for uncloneable values such
      * as error objects, functions, DOM nodes, and WeakMaps.
@@ -16909,7 +16909,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *
      * Array-like values such as `arguments` objects, arrays, buffers, strings, or
      * jQuery-like collections are considered empty if they have a `length` of `0`.
-     * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+     * Similarly, maps and Set are considered empty if they have a `size` of `0`.
      *
      * @static
      * @memberOf _
@@ -16964,7 +16964,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *
      * **Note:** This method supports comparing arrays, array buffers, booleans,
      * date objects, error objects, maps, numbers, `Object` objects, regexes,
-     * sets, strings, symbols, and typed arrays. `Object` objects are compared
+     * Set, strings, symbols, and typed arrays. `Object` objects are compared
      * by their own, not inherited, enumerable properties. Functions and DOM
      * nodes are compared by strict equality, i.e. `===`.
      *

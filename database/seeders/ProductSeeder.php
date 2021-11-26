@@ -26,7 +26,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.9,
             'top' => true,
             'bestOfWeek' => true,
-            'image' => '/images/products/climbingShoes/lezecka1',
+            'image' => 'Lezecka/lezecka1',
         ]);
 
         Product::create([
@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.5,
             'top' => true,
             'bestOfWeek' => false,
-            'image' => '/images/products/climbingShoes/lezecka2',
+            'image' => 'Lezecka/lezecka2',
         ]);
 
         Product::create([
@@ -56,7 +56,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.7,
             'top' => true,
             'bestOfWeek' => false,
-            'image' => '/images/products/climbingShoes/lezecka3',
+            'image' => 'Lezecka/lezecka3',
         ]);
 
         Product::create([
@@ -71,7 +71,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.1,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/climbingShoes/lezecka4',
+            'image' => 'Lezecka/lezecka4',
         ]);
 
         Product::create([
@@ -86,7 +86,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.7,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/climbingShoes/lezecka5',
+            'image' => 'Lezecka/lezecka5',
         ]);
 
         Product::create([
@@ -101,7 +101,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.9,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/sets/set1',
+            'image' => 'Set/set1',
         ]);
 
         Product::create([
@@ -116,7 +116,7 @@ class ProductSeeder extends Seeder
             'rating' => 3.5,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/sets/set2',
+            'image' => 'Set/set2',
         ]);
 
         Product::create([
@@ -131,7 +131,7 @@ class ProductSeeder extends Seeder
             'rating' => 3.1,
             'top' => true,
             'bestOfWeek' => false,
-            'image' => '/images/products/sets/set3',
+            'image' => 'Set/set3',
         ]);
 
         Product::create([
@@ -146,7 +146,7 @@ class ProductSeeder extends Seeder
             'rating' => 3.5,
             'top' => true,
             'bestOfWeek' => false,
-            'image' => '/images/products/ropes/lano1',
+            'image' => 'Lano/lano1',
         ]);
 
         Product::create([
@@ -161,7 +161,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.0,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/ropes/lano2',
+            'image' => 'Lano/lano2',
         ]);
 
         Product::create([
@@ -176,7 +176,7 @@ class ProductSeeder extends Seeder
             'rating' => 3.9,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/ropes/lano3',
+            'image' => 'Lano/lano3',
         ]);
 
         Product::create([
@@ -191,7 +191,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.9,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/equipment/helma1',
+            'image' => 'Vybava/helma1',
         ]);
 
         Product::create([
@@ -206,7 +206,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.9,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/equipment/karabina1',
+            'image' => 'Vybava/karabina1',
         ]);
 
         Product::create([
@@ -221,7 +221,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.1,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/equipment/karabina2',
+            'image' => 'Vybava/karabina2',
         ]);
 
         Product::create([
@@ -236,7 +236,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.1,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/others/sedacka1',
+            'image' => 'Ostatne/sedacka1',
         ]);
 
         Product::create([
@@ -251,7 +251,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.3,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/others/vak1',
+            'image' => 'Ostatne/vak1',
         ]);
 
         Product::create([
@@ -266,7 +266,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.3,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/course/kurz1',
+            'image' => 'Kurz/kurz1',
         ]);
 
         Product::create([
@@ -281,7 +281,7 @@ class ProductSeeder extends Seeder
             'rating' => 4.3,
             'top' => false,
             'bestOfWeek' => false,
-            'image' => '/images/products/course/kurz2',
+            'image' => 'Kurz/kurz2',
         ]);
 
 

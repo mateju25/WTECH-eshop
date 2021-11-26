@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
 class ShoppingCartController extends Controller
@@ -56,7 +57,7 @@ class ShoppingCartController extends Controller
     public function index()
     {
         $order = self::getOrder();
-        return view('shoppingCart', ['previousPage' => str_replace(url('/'), '', url()->previous())])->with('order', $order);
+        return view('shoppingCart', ['previousPage' => str_replace(url('/'), '', url()->previous())])->with('order', $order)->with('imagePath', Config::get('app.productImage'));
     }
 
     /**

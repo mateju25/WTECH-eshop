@@ -15,7 +15,7 @@
                     <div class="col-12 mb-1">
                         <div class="lightbox">
                             <img
-                                src="{{ asset($product->image.'.jpg') }}"
+                                src="{{ asset($imagePath . $product->image.'.jpg') }}"
                                 alt="Gallery image 1"
                                 class="active"
                             />
@@ -59,10 +59,10 @@
                         <div class="sliderElement">
                             <div class="sliderInnerElement">
                                 <a href="/products/{{$product->id}}">
-                                    <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
-                                 {{ asset($product->image.'_300.jpg') }} 800w"
+                                    <img srcset="{{ asset($imagePath . $product->image.'_200.jpg') }} 480w,
+                                 {{ asset($imagePath . $product->image.'_300.jpg') }} 800w"
                                          sizes="(max-width: 600px) 480px, 800px"
-                                         src="{{ asset($product->image.'.jpg') }}"
+                                         src="{{ asset($imagePath . $product->image.'.jpg') }}"
                                          alt="Odporucame"
                                          width="200" height="200">
                                 </a>

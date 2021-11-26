@@ -99,10 +99,10 @@
             <div class="leftPart">
                 <h1>HIT TÝŽDŇA</h1>
                 <a href="/products/{{$bestOfWeek->id}}">
-                    <img class="bestOfWeekImg" srcset="{{ asset($bestOfWeek->image.'_200.jpg') }} 480w,
-                     {{ asset($bestOfWeek->image.'_300.jpg') }} 800w"
+                    <img class="bestOfWeekImg" srcset="{{ asset($imagePath . $bestOfWeek->image.'_200.jpg') }} 480w,
+                     {{ asset($imagePath . $bestOfWeek->image.'_300.jpg') }} 800w"
                          sizes="(max-width: 600px) 480px, 800px"
-                         src="{{ asset($bestOfWeek->image.'.jpg') }}"
+                         src="{{ asset($imagePath . $bestOfWeek->image.'.jpg') }}"
                          alt="Hit týždňa"
                          width="350" height="350">
                 </a>
@@ -135,10 +135,10 @@
                     <div class="sliderElement">
                         <div class="sliderInnerElement">
                             <a href="/products/{{$product->id}}">
-                                <img srcset="{{ asset($product->image.'_200.jpg') }} 480w,
-                                 {{ asset($product->image.'_300.jpg') }} 800w"
+                                <img srcset="{{ asset($imagePath . $product->image.'_200.jpg') }} 480w,
+                                 {{ asset($imagePath . $product->image.'_300.jpg') }} 800w"
                                      sizes="(max-width: 600px) 480px, 800px"
-                                     src="{{ asset($product->image.'.jpg') }}"
+                                     src="{{ asset($imagePath . $product->image.'.jpg') }}"
                                      alt="Odporucame"
                                      width="200" height="200">
                             </a>

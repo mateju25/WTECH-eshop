@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class AdminController extends Controller
 {
@@ -19,6 +20,7 @@ class AdminController extends Controller
         return view('admin')
             ->with('products', $products)
             ->with('businessTypes', BusinessType::all())
-            ->with('categories', Category::all());
+            ->with('categories', Category::all())
+            ->with('imagePath', Config::get('app.productImage'));
     }
 }

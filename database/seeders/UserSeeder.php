@@ -31,21 +31,5 @@ class UserSeeder extends Seeder
             'phone' => '',
             'email' => 'admin@admin.com',
         ]);
-
-        $user = User::create([
-            'email' => 'matej.delincak@gmail.com',
-            'admin' => false,
-            'password' => '$2y$10$oHKGzgLC8CyBVF1dk.Ny8ObYwUz9H1HSBhwsiFq6gfzZxuYKiywdG'
-        ]);
-
-        CustomerInfo::create([
-            'name' => 'Matej Delincak',
-            'user_id' => $user->id,
-            'street' => 'Hviezdoslavova',
-            'postalCode' => '02201',
-            'city' => 'Cadca',
-            'phone' => '0999456789',
-            'email' => 'matej.delincak@gmail.com',
-        ]);
     }
 }
