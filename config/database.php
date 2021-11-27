@@ -18,7 +18,7 @@ return [
     'default' => env('DB_CONNECTION', 'pgsql'),
     'database' => env('DB_DATABASE', 'wtech-eshop'),
     'username' => env('DB_USERNAME', 'postgres'),
-    'password' => env('DB_PASSWORD', 'Korespondent2000'),
+    'password' => env('DB_PASSWORD', '*****'),
 
     /*
     |--------------------------------------------------------------------------
